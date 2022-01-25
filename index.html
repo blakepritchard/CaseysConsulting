@@ -1,25 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>CLB Consulting</title>
-</head>
-
-<body>
-    <main>
-    <h1>Welcome to the CLB Consulting App</h1>
-    <p>Loading content from the API: <b id="name">...</b></p>
-    </main>
-
-    <script>
-    (async function() {
-        const { text } = await( await fetch(`/api/message`)).json();
-        document.querySelector('#name').textContent = text;
-    }())
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(
+            function () 
+            {
+                var strSecret = process.env.BotSecret;
+                var strBotUrl = "<iframe src='https://webchat.botframework.com/embed/CaseysConsultingBot?s="+ strSecret +"'  style='min-width: 400px; width: 100%; min-height: 500px;'></iframe>"
+                document.getElementById("ChatBubble").innerHTML=strSecret;
+            } 
+        )
     </script>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles.css">
+        <title>CLB Consulting</title>
+    </head>
+
+    <body>
+        <main>
+        <h1>Welcome to the CLB Consulting App</h1>
+
+        <div id="ChatBubble"></div>
+
+        </main>
+    </body>
 
 </html>
