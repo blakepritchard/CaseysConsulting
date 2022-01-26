@@ -7,7 +7,8 @@
             function () 
             {
                 var strSecret = process.env.BotSecret;
-                var strBotUrl = "<iframe src='https://webchat.botframework.com/embed/CaseysConsultingBot?s="+ strSecret +"'  style='min-width: 400px; width: 100%; min-height: 500px;'></iframe>"
+                // var strBotUrl = "<iframe src='https://webchat.botframework.com/embed/CaseysConsultingBot?s="+ strSecret +"'  style='min-width: 400px; width: 100%; min-height: 500px;'></iframe>"
+                var strMessage = 
                 document.getElementById("ChatBubble").innerHTML=strSecret;
             } 
         )
@@ -25,6 +26,13 @@
 
         <div id="ChatBubble"></div>
 
+        <p>Loading content from the API: <b id="name">...</b></p>        
+        <script>
+        (async function() {
+            const { text } = await( await fetch(`/api/message`)).json();
+            document.querySelector('#name').textContent = text;
+        }())
+        </script>
         </main>
     </body>
 
