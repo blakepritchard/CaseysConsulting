@@ -1,6 +1,9 @@
+
+const connectionString = process.env.message;
 module.exports = async function (context, req) {
-    var strMessage = process.env.message;
+    var strMessage = "Howdy"; // process.env.message;
+
     context.res.json({
-        text: "Hello World"
+        text: connectionString
     });
 };
