@@ -4,6 +4,6 @@ module.exports = async function (context, req) {
     var strMessage = "Howdy"; // process.env.message;
 
     context.res.json({
-        text: strMessage // process.env.message;
+        text: constMsg // process.env.message;
     });
 };
