@@ -31,6 +31,7 @@
         (async function() {
             const { text } = await( await fetch(`/api/message`)).json();
             document.querySelector('#name').textContent = text;
+            document.getElementById("ChatBubble").innerHTML=text;
         }())
         </script>
         </main>
