@@ -29,7 +29,7 @@
         <div id="ChatBubble"></div>
         <script>
             (async function() {
-                const { text } = await fetch(`/api/message`).json();
+                const { text } = await(await fetch(`/api/message`)).json();
                 document.getElementById("ChatBubble").innerHTML=text;
             }())
         </script>     
