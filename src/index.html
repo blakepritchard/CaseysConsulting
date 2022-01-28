@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<!--
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script type="text/javascript">
         $(document).ready(
@@ -11,6 +12,9 @@
             } 
         )
     </script>
+
+-->
+
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,8 +27,13 @@
         <h1>CLB Consulting</h1>
 
         <div id="ChatBubble"></div>
+        <script>
+            (async function() {
+                const { text } = await( await fetch(`/api/message`)).json();
+                document.getElementById("ChatBubble").innerHTML=text;
+            }())
+        </script>     
 
-               
         <!--   
             <p>Loading content from the API: <b id="name">...</b></p> 
             <script>
